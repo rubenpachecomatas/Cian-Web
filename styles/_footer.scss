@@ -1,0 +1,32 @@
+.footer-container {
+    min-height: 32vh;
+    background-color: black;
+    color: white;
+    .icons-footer {
+        margin: 0 auto;
+        padding-top: 30px;
+        text-align: center;
+        font-size: 3em;
+        a {
+            color: white;
+            i {
+                margin: 0 10px;
+            }
+        }
+    }
+    .text-footer {
+        padding-top: 10px;
+        margin: 0 auto;
+        text-align: center;
+        h1 {
+            font-weight: 100;
+            font-size: 2em;
+        }
+        p {
+            font-size: 1.3em;
+            font-weight: 100;
+            margin: 0 auto;
+            padding-bottom: 20px;
+        }
+    }
+}

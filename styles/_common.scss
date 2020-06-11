@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+}
+
+.welcome {
+    background-image: url('../assets/img/creative.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgba(61, 61, 61, 0.7);
+    background-blend-mode: soft-light;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
+
+.parallax {
+    div {
+        min-height: 600px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    div.parallax-app-about {
+        background-image: url('../assets/img/cian-sky.jpg');
+    }
+    div.parallax-get-footer {
+        background-image: url('../assets/img/get-footer.jpg');
+    }
+    div.parallax-graph-get {
+        background-image: url('../assets/img/graphs-get.jpg');
+    }
+    div.parallax-app-graph {
+        background-image: url('../assets/img//app-graph.jpg');
+    }
+}
+
+.top-button {
+    position: fixed;
+    font-size: 1.2em;
+    cursor: pointer;
+    border: 1px solid grey;
+    padding: 8px;
+    text-align: center;
+    bottom: 10px;
+    left: 50%;
+    transform: translate(-50%, 0);
+    width: 150px;
+    transition: 0.5s width;
+    background-color: white;
+    border-radius: 20px;
+    a {
+        color: black;
+        text-decoration: none;
+    }
+}
+
+.top-button:hover {
+    width: 200px;
+}
+
+.top-button:active {
+    animation-name: goTop;
+    animation-duration: 2s;
+}
+
+a {
+    text-decoration: none;
+}
+
+.outline-button {
+    padding: 20px;
+    border: 2px solid white;
+    margin: 0 auto;
+    text-align: center;
+    width: 45%;
+    cursor: pointer;
+    color: white;
+    font-size: 1em;
+    background: rgba(255, 255, 255, 0);
+    transition: all 0.5s;
+}
+
+.outline-button:hover {
+    background: rgba(255, 255, 255, 1);
+    color: black;
+    border: 2px solid black;
+    font-size: 1.2em;
+}
+
+@media only screen and (max-width: 950px) {
+    .outline-button {
+        width: 60%;
+    }
+}
