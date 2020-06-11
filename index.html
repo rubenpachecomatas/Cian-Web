@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/main.css">
+    <script src="https://kit.fontawesome.com/d368b3fd31.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <script src="./js/game.js"></script>
+    <script src="./js/snap.svg-min.js"></script>
+    <link rel="icon" type="image/ico" href="./assets/img/favicon.ico"/>
+    <title>Cian</title>
+</head>
+<body onload="inicialize();">
+    <div class="wrapper">
+        <div class="top-button"><a href="#">Jump to top</a></div>
+        <div class="welcome">
+            <nav class="nav-container">
+                <img class="saturn-icon" src="./assets/img/saturn.svg" alt="App Icon">
+                <svg class="svg-menu" id = "svgout"></svg>
+                <!--<div onclick="openMenu('navbar')" class="burger-button" id="burger">
+                    <i class="fas fa-bars"></i>
+                </div>-->
+                <ul id="navbar">
+                    <!--<li><a class="title" href="#">CIAN</a></li>-->
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#the-app">The App</a></li>
+                    <li><a href="#graphs">Graphs</a></li>
+                    <li><a href="#get-started">Get Started</a></li>
+                    <!--<i class="fas fa-bars"></i>-->
+                </ul>
+                <!--<div onclick="closeMenu('navbar')" class="cancel-button" id="cancel">
+                    <i class="fas fa-times"></i>
+                </div>-->
+            </nav>
+        </div>
+        <section id="about" class="about">
+            <div class="title">
+                <h1>About</h1>
+            </div>
+            <div class="grid-container">
+                <div class="about-text">
+                    <p>Cian is not something new, it just tries to pay the attention it deserves to something that already existed.</p>
+                    <a href="#the-app"><div class="outline-button">Learn more</div></a>
+                </div>
+                <div class="about-img">
+                    <img src="./assets/img/tech-about.jpg" alt="Tech about">
+                </div>
+            </div>
+        </section>
+        <div class="parallax">
+            <div class="parallax-app-about"></div>
+        </div>
+        <section id="the-app" class="the-app">
+            <div class="title">
+                <h1>The App</h1>
+            </div>
+            <div class="grid-container">
+                <div class="the-app-text">
+                    <p>
+                        The Cian app works like any other social network, focused on promoting user creativity and teamwork.
+                    </p>
+                </div>
+                <div class="the-app-video">
+                    <div class="iframe-container">
+                        <iframe width="560" height="315" src="https://www.youtube.com/embed/zaqWnU6Uq5k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <div class="parallax">
+            <div class="parallax-app-graph"></div>
+        </div>
+        <section id="graphs" class="graphs">
+            <div class="title">
+                <h1>Graphs</h1>
+            </div>
+            <div class="grid-container">
+                <div class="graphs-text">
+                    <p>
+                        Cian is developed in Ionic, using PostgreSQL as a relational database for the posts part and firebase for user management. All this connected with a backend in NodeJS and express.
+                    </p>
+                </div>
+                <div class="graphs-chart">
+                    <canvas id="myChart" height="400"></canvas>
+                </div>
+            </div>
+        </section>
+        <div class="parallax">
+            <div class="parallax-graph-get"></div>
+        </div>
+        <section id="get-started" class="get-started">
+            <div class="title">
+                <h1>Get Started</h1>
+            </div>
+            <div class="grid-container">
+                <div class="get-started-text">
+                    <p>
+                        You can download the application by pressing the following button. While downloading you can play this little minigame.
+                    </p>
+                    <div class="outline-button">Download</div>
+                </div>
+                <div class="get-started-game">
+                    <canvas
+                        id="canvas" 
+                        width="700" 
+                        height="300">
+                    </canvas>
+                </div>
+            </div>
+        </section>
+        <div class="parallax">
+            <div class="parallax-get-footer"></div>
+        </div>
+        <footer class="footer-container">
+            <div class="icons-footer">
+                <a href="https://github.com/rubenpachecomatas" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/ruben-pacheco-matas/" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin"></i></a>
+            </div>
+            <div class="text-footer">
+                <h1>Created by Rubén Pacheco Matas</h1>
+                <p>Non-commercial Use</p>
+                <p>2020</p>
+            </div>
+        </footer>
+    </div>
+</body>
+<script>
+    // Pie Chart
+    var ctx= document.getElementById("myChart").getContext("2d");
+    var myChart= new Chart(ctx,{
+        type:"pie",
+        data:{
+            labels:['Ionic','Firebase','NodeJS','PosgreSQL'],
+            datasets:[{
+                    label:'Num datos',
+                    data:[65,15,10,10],
+                    backgroundColor:[
+                        'rgb(66, 134, 244,0.5)',
+                        'rgb(229, 89, 50,0.5)',
+                        'rgb(74, 135, 72,0.5)'
+                    ]
+            }]
+        }
+    });
+
+    // Prevents scroll down when pressing space
+    document.onkeypress = function(e) {
+        e = e || window.event;
+        var charCode = e.keyCode || e.which;
+        if (charCode === 32) {
+            e.preventDefault();
+            return false;
+        }
+    }
+
+    var s = Snap('#svgout');
+    s.attr({
+        width: 150,
+        height: 130
+    });
+
+
+    var g = s.group();
+
+    var t = g.rect(10, 20, 100, 15, 5, 5).attr({ 'fill': '#FFF' });
+    var m = g.rect(10, 55, 100, 15, 5, 5).attr({ 'fill': '#FFF' });
+    var b = g.rect(10, 90, 100, 15, 5, 5).attr({ 'fill': '#FFF' });
+
+    var set = g.selectAll('rect');
+    var toggle = true;
+
+    g.click(function () {
+        if (toggle) {
+            openNav('navbar')
+            menuOpen();
+            toggle = false;
+        } else {
+            closeNav('navbar')
+            menuClose();
+            toggle = true;
+        }
+    });
+
+    function menuOpen() {
+        set.animate([{ 'opacity': '0' }, 10], [{}], [{ transform: 't0 -35r-90' }, 10]);
+        menu = g.group(m, b);
+        var mat = new Snap.matrix();
+        mat.rotate(45, 65, 60);
+        menu.animate({ transform: mat }, 300);
+    };
+
+    function menuClose() {
+        var mat = new Snap.matrix();
+        var matIn = mat.invert();
+        menu = g.group(m, b);
+        menu.animate({ transform: matIn }, 100);
+        set.animate([{ 'opacity': 1 }, 300], [{}], [{ transform: '0' }, 300]);
+    };
+
+    function openNav(element) {
+        document.getElementById(element).style.visibility = 'visible';
+    }
+    
+    function closeNav(element) {
+        document.getElementById(element).style.visibility = 'hidden';
+    }
+
+</script>
+</html>
